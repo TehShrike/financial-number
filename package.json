@@ -4,7 +4,7 @@
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js && jsmd readme.md"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/TehShrike/financial-arithmeticator/issues"
   },
-  "homepage": "https://github.com/TehShrike/financial-arithmeticator#readme"
+  "homepage": "https://github.com/TehShrike/financial-arithmeticator#readme",
+  "devDependencies": {
+    "jsmd": "0.3.1",
+    "tape": "4.2.2"
+  },
+  "dependencies": {
+    "financial-arithmetic-functions": "1.1.0"
+  }
 }
