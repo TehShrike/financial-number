@@ -1,0 +1,28 @@
+{
+  "name": "financial-arithmeticator",
+  "version": "1.0.0",
+  "description": "Do math with money! Without risking loss of data to floating point representations!",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TehShrike/financial-arithmeticator.git"
+  },
+  "keywords": [
+    "financial",
+    "arithmetic",
+    "math",
+    "money",
+    "number",
+    "bigint",
+    "bignumber"
+  ],
+  "author": "TehShrike",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/TehShrike/financial-arithmeticator/issues"
+  },
+  "homepage": "https://github.com/TehShrike/financial-arithmeticator#readme"
+}
