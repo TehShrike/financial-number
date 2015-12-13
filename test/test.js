@@ -43,6 +43,8 @@ test('getPrecision', function(t) {
 test('equality', function(t) {
 	t.ok(number('13').equal('13.000'))
 	t.notOk(number('13').equal('13.0000000001'))
+	t.ok(number('13.000').equal('13'))
+	t.notOk(number('13.0000000001').equal('13'))
 	t.ok(number('13').equal('13'))
 	t.ok(number('000013').equal('13.000'))
 
