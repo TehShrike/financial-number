@@ -22,7 +22,7 @@ This library increases the precision of the result based on its inputs.
 
 With multiplication, the number of digits after the decimal point is the sum of the precision of both operands, e.g. `12.00 * 5.0` is `60.000`.
 
-Addition and subtraction always result in the precision of the highest-precision of the operands: 12.00 + 5 is 17.00.
+Addition and subtraction always result in the precision of the highest-precision of the operands: `12.00 + 5` is `17.00`.
 
 ### Rounding
 
