@@ -88,7 +88,7 @@ They return true or false.
 
 #### `num.changePrecision(newPrecision, [roundingStrategy])`
 
-Takes a new precision, and an optional rounding strategy.  Returns a new number object.
+Takes a new precision, and an optional rounding strategy.  Returns a new number object.  See [Rounding](#rounding)
 
 ```js
 number('14.556').changePrecision(2, number.trim).toString() // => '14.55'
