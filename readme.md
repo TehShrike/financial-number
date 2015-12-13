@@ -115,6 +115,15 @@ number('13').isNegative() // => false
 number('13').times('-1').isNegative() // => true
 ```
 
+## Running the tests/contributing
+
+```sh
+git clone https://github.com/TehShrike/financial-arithmeticator.git
+cd financial-arithmeticator
+npm install
+npm test
+```
+
 ## Other
 
 I never use `this`, so you don't have to mess around with `bind` to do whatever wacky functional things you want, like this:
