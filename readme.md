@@ -96,7 +96,7 @@ number('14.556').changePrecision(2, number.trim).toString() // => '14.55'
 
 #### `num.toString([[displayPrecision], roundingStrategy])`
 
-Returns a string representation of the number for display or storage.  You can specify the precision and rounding strategy to be passed to `changePrecision` if you like - by default, the number will display at its current precision.
+Returns a string representation of the number for display or storage.  You can specify the precision and rounding strategy to be passed to `changePrecision` if you like - by default, the number will display at its current precision.  See [Rounding](#rounding)
 
 ```js
 number('99.99').toString() // => '99.99'
@@ -108,7 +108,7 @@ number('99.99').toString() // => '99.99'
 number('99.99').getPrecision() // => 2
 ```
 
-### `num.isNegative()`
+#### `num.isNegative()`
 
 ```js
 number('13').isNegative() // => false
