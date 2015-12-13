@@ -64,29 +64,35 @@ number('99.99').times('1.15').gt('100') // => true
 
 - `number(string)`
 
-Pass in the string representation of a number, get back a number object.
+```js
+var numberValue = number('50.0')
+```
 
-Numbers are immutable, and functions return a new number object.
+Pass in the string representation of a number, get back a financial number object.
 
-Number objects have these methods.  They all take strings, or number objects.
+Financial numbers are immutable, and functions return a new number object.
 
-- `num.plus(num)`
-- `num.minus(num)`
-- `num.times(num)`
+Financial number objects have these methods.  The operations and comparisons all take strings, or financial number objects.
+
+### Operations
+
+- `numberValue.plus(num)`
+- `numberValue.minus(num)`
+- `numberValue.times(num)`
 
 ### Comparisons
 
 They return true or false.
 
-- `num.gt(num)`
-- `num.gte(num)`
-- `num.lt(num)`
-- `num.lte(num)`
-- `num.equal(num)`
+- `numberValue.gt(num)`
+- `numberValue.gte(num)`
+- `numberValue.lt(num)`
+- `numberValue.lte(num)`
+- `numberValue.equal(num)`
 
 ### Other utility methods
 
-#### `num.changePrecision(newPrecision, [roundingStrategy])`
+#### `numberValue.changePrecision(newPrecision, [roundingStrategy])`
 
 Takes a new precision, and an optional rounding strategy.  Returns a new number object.  See [Rounding](#rounding)
 
@@ -94,7 +100,7 @@ Takes a new precision, and an optional rounding strategy.  Returns a new number 
 number('14.556').changePrecision(2, number.trim).toString() // => '14.55'
 ```
 
-#### `num.toString([[displayPrecision], roundingStrategy])`
+#### `numberValue.toString([[displayPrecision], roundingStrategy])`
 
 Returns a string representation of the number for display or storage.  You can specify the precision and rounding strategy to be passed to `changePrecision` if you like - by default, the number will display at its current precision.  See [Rounding](#rounding)
 
@@ -102,13 +108,13 @@ Returns a string representation of the number for display or storage.  You can s
 number('99.99').toString() // => '99.99'
 ```
 
-#### `num.getPrecision()`
+#### `numberValue.getPrecision()`
 
 ```js
 number('99.99').getPrecision() // => 2
 ```
 
-#### `num.isNegative()`
+#### `numberValue.isNegative()`
 
 ```js
 number('13').isNegative() // => false
