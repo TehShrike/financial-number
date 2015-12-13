@@ -12,6 +12,7 @@ test('adding and subtracting', function(t) {
 test('multiplication and whatever', function(t) {
 	t.equal(number('12').times('12.45').toString(), '149.40')
 	t.equal(number('1.57').times('1.13').plus('1').toString(), '2.7741')
+	t.equal(number('1.000').times('1.5').toString(), '1.5000')
 
 	t.end()
 })
