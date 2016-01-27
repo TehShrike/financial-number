@@ -43,8 +43,6 @@ test('getPrecision', function(t) {
 test('equality', function(t) {
 	t.ok(number('13').equal('13.000'))
 	t.notOk(number('13').equal('13.0000000001'))
-	t.ok(number('13.000').equal('13'))
-	t.notOk(number('13.0000000001').equal('13'))
 	t.ok(number('13').equal('13'))
 	t.ok(number('000013').equal('13.000'))
 
@@ -96,4 +94,15 @@ test('changing precision by rounding', function(t) {
 	t.equal(number('-5.64').changePrecision(4, number.round).toString(), '-5.6400', 'negative number: precision increasing')
 
 	t.end()
+})
+
+test('formatted toString', function(t) {
+	t.equal(number('-12345678.9').format({}), '-$12,345,678.90', 'default formatting')
+	t.equal(number('-12345678.9').format({negative_after_currency: true}), '$-12,345,678.90', 'negative symbol after currency symbol')
+	t.equal(number('-12345678.9').format({symbol_last: true}), '-12,345,678.90$', 'currency symbol after number')
+	t.equal(number('-12345678.9').format({symbol_last: true, negative_after_currency: true}), '-12,345,678.90$', 'negative symbol 	still at front with currency symbol after number')
+
+
+
+
 })
