@@ -21,6 +21,9 @@ var makeNumberObject = makeArgumentString(function makeNumberObject(str) {
 			if (typeof precision === 'number') {
 				return self.changePrecision(precision, roundingStrategy).toString()
 			}
+			if (typeof precision === 'object') {
+	      return self.format(precision)
+	    }
 			return str
 		},
 		changePrecision: function changePrecision(precision, roundingStrategy) {
@@ -47,7 +50,35 @@ var makeNumberObject = makeArgumentString(function makeNumberObject(str) {
 		},
 		lte: function lessThanOrEqualTo(otherSide) {
 			return !self.gt(otherSide)
-		}
+		},
+		format: function format(props) {
+			props = props || {}
+	    props.decimal_places = props.decimal_places === undefined ? 2 : props.decimal_places
+	    props.decimal_separator = props.decimal_separator || '.'
+	    props.thousands_separator = props.thousands_separator || ','
+	    props.currency_symbol = props.currency_symbol || '$'
+
+	    var parts = self.changePrecision(props.decimal_places, props.rounding_strategy).toString().split('.')
+	    var units = self.isNegative() ? parts[0].slice(1) : parts[0]
+	    var decimals = (parts.length > 1) ? parts[1] : null
+
+	    var groupedUnits = ''
+	    for (var i = units.length; i > 3; i -= 3) {
+	      groupedUnits = props.thousands_separator + units.slice(i-3, i) + groupedUnits
+	    }
+	    groupedUnits = units.slice(0, i) + groupedUnits
+	    if (decimals) {
+	      groupedUnits += props.decimal_separator + decimals
+	    }
+	    var formattedString = self.isNegative() ? '-' : ''
+	    if (!props.symbol_last) {
+	      formattedString = props.negative_after_currency ? props.currency_symbol + formattedString : formattedString + props.currency_symbol
+	    }
+	    formattedString += groupedUnits
+	    formattedString = props.symbol_last ? formattedString + props.currency_symbol : formattedString
+
+	    return formattedString
+	  }
 	}
 
 	return self
