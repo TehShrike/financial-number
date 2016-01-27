@@ -52,6 +52,7 @@ var makeNumberObject = makeArgumentString(function makeNumberObject(str) {
 			return !self.gt(otherSide)
 		},
 		format: function format(props) {
+			props = props || {}
 	    props.decimal_places = props.decimal_places === undefined ? 2 : props.decimal_places
 	    props.decimal_separator = props.decimal_separator || '.'
 	    props.thousands_separator = props.thousands_separator || ','
