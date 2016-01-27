@@ -38,6 +38,10 @@ By default, numbers will be trimmed - `number('114.9885').toString(2)` will retu
 
 If you prefer rounding, you can pass in the provided rounding strategy: `number('114.9885').toString(2, number.round)` will produce `114.99`.
 
+You can also call `format` with an object defining more extensive currency formatting options (this can also be passed to `toString` for the same result).
+
+Use a blank object for a default currency format - `number('123456').format()` will return `$123,456.00`.
+
 If your business requirements call for a different rounding strategy, you can provide your own.  I would be happy to help you write it if you [open an issue](https://github.com/TehShrike/financial-arithmeticator/issues).
 
 #### For calculation purposes
@@ -108,6 +112,22 @@ Returns a string representation of the number for display or storage.  You can s
 
 ```js
 number('99.99').toString() // => '99.99'
+```
+
+#### `numberValue.format([formatObject])` or `numberValue.toString(formatObject)`
+
+Returns a formatted string representation of the number for currency display. You can specify the following properties (all of which are optional):
+- `decimal_places`: The number of decimal places to change precision to (*default: `2`*)
+- `rounding_strategy`: The rounding strategy to use when changing precision (*default: `number.trim`*)
+- `currency_symbol`: The currency symbol (*default: `,`*)
+- `symbol_last`: Whether the currency symbol should be placed after the digits (*default: `false`*)
+- `thousands_separator`: The thousands grouping separator (*default: `,`*)
+- `decimal_separator`: The decimal place separator (*default: `.`*)
+- `negative_after_currency`: Whether the negative symbol should be placed after the currency symbol when at it is displayed before the digits (*default: `false`, has no effect if `symbol_last` is falsy*)
+
+
+```js
+number('-123456.99').format() // => '-$123,456.99'
 ```
 
 #### `numberValue.getPrecision()`

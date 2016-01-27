@@ -96,13 +96,20 @@ test('changing precision by rounding', function(t) {
 	t.end()
 })
 
-test('formatted toString', function(t) {
+test('currency formatting', function(t) {
 	t.equal(number('-12345678.9').format({}), '-$12,345,678.90', 'default formatting')
 	t.equal(number('-12345678.9').format({negative_after_currency: true}), '$-12,345,678.90', 'negative symbol after currency symbol')
 	t.equal(number('-12345678.9').format({symbol_last: true}), '-12,345,678.90$', 'currency symbol after number')
-	t.equal(number('-12345678.9').format({symbol_last: true, negative_after_currency: true}), '-12,345,678.90$', 'negative symbol 	still at front with currency symbol after number')
+	t.equal(number('-12345678.9').format({symbol_last: true, negative_after_currency: true}), '-12,345,678.90$', 'negative symbol still at front with currency symbol after number')
+	t.equal(number('-12345678.9').format({thousands_separator: '+', decimal_separator: '^', currency_symbol: '@'}), '-@12+345+678^90', 'user-defined currency symbol and separators')
+	t.equal(number('-12345678.9').format({decimal_places: 3}), '-$12,345,678.900', 'precision no rounding')
+	t.equal(number('-12345678.09').format({decimal_places: 1, rounding_strategy: number.round}), '-$12,345,678.1', 'precision with rounding')
+	t.equal(number('-12345678.009').format({rounding_strategy: number.round}), '-$12,345,678.01', 'no precision with rounding')
+	t.equal(number('-12345678.98').format({decimal_places: 0}), '-$12,345,678', 'no decimal places with no rounding')
+	t.equal(number('-12345678.98').format({decimal_places: 0, rounding_strategy: number.round}), '-$12,345,679', 'no decimal places with rounding')
 
+t.equal(number('-12345678.9').format(), '-$12,345,678.90', 'no format object')
+	t.equal(number('-12345678.9').toString({}), '-$12,345,678.90', 'default formatting using `toString` as a shortcut')
 
-
-
+	t.end()
 })
