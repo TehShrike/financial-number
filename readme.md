@@ -6,7 +6,7 @@ It's the **FINANCIAL ARITHMETICATOOOOOOOR!**
 
 \**cough*\*
 
-[![Build Status](https://travis-ci.org/TehShrike/financial-arithmeticator.svg?branch=master)](https://travis-ci.org/TehShrike/financial-arithmeticator)
+Now renamed to [financial-number](https://www.npmjs.com/package/financial-number) because it makes sense and it's easier to remember and spell.
 
 If you're doing math on financial numbers - invoice items, tax rates, those sorts of things - you can't ever afford to represent your numbers with floating point numbers.
 
