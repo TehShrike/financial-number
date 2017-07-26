@@ -6,6 +6,8 @@ It's the **FINANCIAL ARITHMETICATOOOOOOOR!**
 
 \**cough*\*
 
+[![Build Status](https://travis-ci.org/TehShrike/financial-arithmeticator.svg?branch=master)](https://travis-ci.org/TehShrike/financial-arithmeticator)
+
 If you're doing math on financial numbers - invoice items, tax rates, those sorts of things - you can't ever afford to represent your numbers with floating point numbers.
 
 Store them as [fixed-point types](https://dev.mysql.com/doc/refman/5.5/en/fixed-point-types.html) in the database, and in JavaScript, pass them around as strings to keep from possibly losing data.
