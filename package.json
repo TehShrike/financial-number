@@ -1,5 +1,5 @@
 {
-  "name": "financial-arithmeticator",
+  "name": "financial-number",
   "version": "1.0.1",
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TehShrike/financial-arithmeticator.git"
+    "url": "git+https://github.com/TehShrike/financial-number.git"
   },
   "keywords": [
     "financial",
@@ -22,9 +22,9 @@
   "author": "TehShrike",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/TehShrike/financial-arithmeticator/issues"
+    "url": "https://github.com/TehShrike/financial-number/issues"
   },
-  "homepage": "https://github.com/TehShrike/financial-arithmeticator#readme",
+  "homepage": "https://github.com/TehShrike/financial-number#readme",
   "devDependencies": {
     "faucet": "0.0.1",
     "jsmd": "0.3.1",

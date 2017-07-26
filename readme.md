@@ -2,11 +2,7 @@
 var number = require('./')
 -->
 
-It's the **FINANCIAL ARITHMETICATOOOOOOOR!**
-
-\**cough*\*
-
-Now renamed to [financial-number](https://www.npmjs.com/package/financial-number) because it makes sense and it's easier to remember and spell.
+A number object that is safe to use for financial numbers.  Won't ever convert your numbers to floating point!
 
 If you're doing math on financial numbers - invoice items, tax rates, those sorts of things - you can't ever afford to represent your numbers with floating point numbers.
 
@@ -38,7 +34,7 @@ By default, numbers will be trimmed - `number('114.9885').toString(2)` will retu
 
 If you prefer rounding, you can pass in the provided rounding strategy: `number('114.9885').toString(2, number.round)` will produce `114.99`.
 
-If your business requirements call for a different rounding strategy, you can provide your own.  I would be happy to help you write it if you [open an issue](https://github.com/TehShrike/financial-arithmeticator/issues).
+If your business requirements call for a different rounding strategy, you can provide your own.  I would be happy to help you write it if you [open an issue](https://github.com/TehShrike/financial-number/issues).
 
 #### For calculation purposes
 
@@ -53,7 +49,7 @@ subtotal.toString() // => '2.99'
 
 ## Usage
 
-`npm install financial-arithmeticator`, `var number = require('financial-arithmeticator')`
+`npm install financial-number`, `var number = require('financial-number')`
 
 ```js
 
@@ -126,8 +122,8 @@ number('13').times('-1').isNegative() // => true
 ## Running the tests/contributing
 
 ```sh
-git clone https://github.com/TehShrike/financial-arithmeticator.git
-cd financial-arithmeticator
+git clone https://github.com/TehShrike/financial-number.git
+cd financial-number
 npm install
 npm test
 ```
