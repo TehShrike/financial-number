@@ -1,6 +1,6 @@
 {
   "name": "financial-arithmeticator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "main": "index.js",
   "scripts": {
