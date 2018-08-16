@@ -10,7 +10,7 @@ Store them as [fixed-point types](https://dev.mysql.com/doc/refman/5.5/en/fixed-
 
 Looking on npm I only found [one other module](https://github.com/ikr/money-math) that didn't taint values by converting them to or from the Number type, and it's hard-coded to a precision of two digits after the decimal point.
 
-So I made this library.  It is built on [financial-arithmetic-functions](https://github.com/TehShrike/financial-arithmetic-functions), which is in turn built on the [jsbin](https://github.com/andyperlitch/jsbn) library.
+So I made this library.  It is built on [financial-arithmetic-functions](https://github.com/TehShrike/financial-arithmetic-functions), which is in turn built on the [jsbn](https://github.com/andyperlitch/jsbn) library.
 
 I will add more methods as I need them.  If you run into an operation you need that is not yet implemented, feel free to open a pull request.
 
