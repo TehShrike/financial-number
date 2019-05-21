@@ -3,8 +3,10 @@
   "version": "1.0.2",
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "main": "index.js",
+  "module": "index.mjs",
   "scripts": {
-    "test": "tape test/*.js | faucet && jsmd readme.md"
+    "test": "tape test/*.js | faucet && jsmd readme.md",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,9 @@
   "devDependencies": {
     "faucet": "0.0.1",
     "jsmd": "0.3.1",
+    "rollup": "^1.12.3",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
     "tape": "4.2.2"
   },
   "dependencies": {
