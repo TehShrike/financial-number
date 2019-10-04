@@ -98,7 +98,7 @@ Takes a new precision, and an optional rounding strategy.  Returns a new number 
 number('14.556').changePrecision(2, number.trim).toString() // => '14.55'
 ```
 
-#### `numberValue.toString([[displayPrecision], roundingStrategy])`
+#### `numberValue.toString([displayPrecision, [roundingStrategy]])`
 
 Returns a string representation of the number for display or storage.  You can specify the precision and rounding strategy to be passed to `changePrecision` if you like - by default, the number will display at its current precision.  See [Rounding](#rounding)
 
