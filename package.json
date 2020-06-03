@@ -5,7 +5,7 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "test": "tape test/*.js | faucet && jsmd readme.md",
+    "test": "tape test/*.js | tap-color && jsmd readme.md",
     "build": "rollup -c"
   },
   "repository": {
@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/TehShrike/financial-number#readme",
   "devDependencies": {
-    "faucet": "0.0.1",
-    "jsmd": "0.3.1",
+    "jsmd": "^1.0.2",
     "rollup": "^1.12.3",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
+    "tap-color": "^1.2.0",
     "tape": "4.2.2"
   },
   "dependencies": {
