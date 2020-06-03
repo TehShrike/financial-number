@@ -4,15 +4,15 @@ var number = require('./')
 
 A number object that is safe to use for financial numbers.  Won't ever convert your numbers to floating point!
 
+## JS engine support
+
+The `financial-number@1` uses a JS bigint implementation under the hood.  2.x uses the `BigInt` support (available in node 10.8+).
+
+## Premise
+
 If you're doing math on financial numbers - invoice items, tax rates, those sorts of things - you can't ever afford to represent your numbers with floating point numbers.
 
 Store them as [fixed-point types](https://dev.mysql.com/doc/refman/5.5/en/fixed-point-types.html) in the database, and in JavaScript, pass them around as strings to keep from possibly losing data.
-
-Looking on npm I only found [one other module](https://github.com/ikr/money-math) that didn't taint values by converting them to or from the Number type, and it's hard-coded to a precision of two digits after the decimal point.
-
-So I made this library.  It is built on [financial-arithmetic-functions](https://github.com/TehShrike/financial-arithmetic-functions), which is in turn built on the [jsbn](https://github.com/andyperlitch/jsbn) library.
-
-I will add more methods as I need them.  If you run into an operation you need that is not yet implemented, feel free to open a pull request.
 
 ## Precision
 
