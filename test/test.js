@@ -106,3 +106,9 @@ test(`toJSON`, t => {
 	t.end()
 })
 
+test(`Validate inputs when the initial function is called`, t => {
+	t.throws(() => number(`.123`), /Invalid input/)
+	t.throws(() => number(`wat`), /Invalid input/)
+
+	t.end()
+})

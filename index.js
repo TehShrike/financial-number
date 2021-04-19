@@ -3,7 +3,13 @@ const math = require(`financial-arithmetic-functions`)
 const allZeroesRegex = /^0(\.0+)?$/
 const someNonZeroDigit = /[1-9]/
 
-const makeArgumentString = fn => input => fn(typeof input === `string` ? input : input.toString())
+const makeArgumentString = fn => input => {
+	const input_as_string = typeof input === `string` ? input : input.toString()
+	if (!math.validate(input_as_string)) {
+		throw new Error(`Invalid input "${ input }"`)
+	}
+	return fn(input_as_string)
+}
 
 const makeNumberObject = makeArgumentString(str => {
 	const self = {
