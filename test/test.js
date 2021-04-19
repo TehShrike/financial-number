@@ -98,3 +98,11 @@ test(`changing precision by rounding`, t => {
 
 	t.end()
 })
+
+test(`toJSON`, t => {
+	t.equal(number(`-5.64`).toJSON(), `-5.64`)
+	t.equal(number(`12.544`).toJSON(), `12.544`)
+
+	t.end()
+})
+

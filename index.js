@@ -13,6 +13,9 @@ const makeNumberObject = makeArgumentString(str => {
 		getPrecision() {
 			return math.getPrecision(str)
 		},
+		toJSON() {
+			return str
+		},
 		toString(precision, roundingStrategy) {
 			if (typeof precision === `number`) {
 				return self.changePrecision(precision, roundingStrategy).toString()
