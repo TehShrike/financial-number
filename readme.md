@@ -59,7 +59,7 @@ total.toString() // => '42.72'
 
 ### Precision general principle
 
-Whenever you need to dislpay or store a number with a specific number of digits after the decimal place, you should explicity set that number to the correct precision before using it in any further calculations.
+Whenever you need to display or store a number with a specific number of digits after the decimal place, you should explicity set that number to the correct precision before using it in any further calculations.
 
 ## Rounding methods
 
