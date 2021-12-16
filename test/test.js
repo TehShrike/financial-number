@@ -112,3 +112,10 @@ test(`Validate inputs when the initial function is called`, t => {
 
 	t.end()
 })
+
+test(`modulo`, t => {
+	t.equal(number(`12.00`).mod(`0.01`).toString(), `0.00`)
+	t.equal(number(`12.005`).mod(`0.01`).toString(), `0.005`)
+
+	t.end()
+})

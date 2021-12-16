@@ -36,6 +36,6 @@
     "tape": "4.2.2"
   },
   "dependencies": {
-    "financial-arithmetic-functions": "^3.0.0"
+    "financial-arithmetic-functions": "^3.1.0"
   }
 }

@@ -1,3 +1,7 @@
+# 3.1.0
+
+- added `mod` method for your modulo needs
+
 # 3.0.0
 
 - added a `toJSON` method that returns the string value of the number

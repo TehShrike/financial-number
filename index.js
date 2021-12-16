@@ -16,6 +16,7 @@ const makeNumberObject = makeArgumentString(str => {
 		plus: makeArgumentString(otherSide => makeNumberObject(math.add(str, otherSide))),
 		minus: makeArgumentString(otherSide => makeNumberObject(math.subtract(str, otherSide))),
 		times: makeArgumentString(otherSide => makeNumberObject(math.multiply(str, otherSide))),
+		mod: makeArgumentString(otherSide => makeNumberObject(math.modulo(str, otherSide))),
 		getPrecision() {
 			return math.getPrecision(str)
 		},
