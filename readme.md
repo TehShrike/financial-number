@@ -109,6 +109,7 @@ Financial number objects have these methods.  The operations and comparisons all
 - `numberValue.plus(num)`
 - `numberValue.minus(num)`
 - `numberValue.times(num)`
+- `numberValue.mod(num)`
 
 ### Comparisons
 
@@ -149,14 +150,6 @@ number('99.99').getPrecision() // => 2
 ```js
 number('13').isNegative() // => false
 number('13').times('-1').isNegative() // => true
-```
-
-#### `numberValue.mod(divisor)`
-
-```js
-number('13').mod('10').toString() // => '3'
-number('12.00').mod('0.01').toString() // => '0.00'
-number('12.005').mod('0.01').toString() // => '0.005'
 ```
 
 ## Running the tests/contributing
