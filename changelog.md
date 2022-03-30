@@ -1,3 +1,7 @@
+# 3.2.0
+
+- added `withDefaultRoundingStrategy` export to the entry point so you can get a `number` function that defaults to your preferred strategy
+
 # 3.1.0
 
 - added `mod` method for your modulo needs

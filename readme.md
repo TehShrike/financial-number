@@ -90,6 +90,18 @@ number('11.0').minus('9').times('3.75').toString() // => '7.500'
 number('99.99').times('1.15').gt('100') // => true
 ```
 
+### Default to your preferred rounding strategy
+
+So that if you want a different default (besides the default default `trim`), you don't have to pass in your chosen strategy every time you call `toString` or `changePrecision`.
+
+```node
+const { round, withDefaultRoundingStrategy } = require('financial-number')
+
+const number = withDefaultRoundingStrategy(round)
+
+module.exports = number
+```
+
 ## API
 
 - `number(string)`
