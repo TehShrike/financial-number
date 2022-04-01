@@ -119,3 +119,8 @@ test(`modulo`, t => {
 
 	t.end()
 })
+
+test(`works with javascript numbers too`, t => {
+	t.equal(number(3).times(4).toString(), `12`)
+	t.end()
+})
