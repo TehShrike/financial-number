@@ -1,3 +1,7 @@
+# 4.0.2
+
+- Export types harder this time
+
 # 4.0.1
 
 - Include the type file in the package.json maybe?

@@ -28,7 +28,7 @@ export type FinancialNumber = {
 	lte: (number: FinancialNumber | string) => boolean,
 }
 
-type RoundingStrategy = (number: FinancialNumber, targetPrecision: number) => string
+export type RoundingStrategy = (number: FinancialNumber, targetPrecision: number) => string
 
 type MakeNumberObject = (str: string | FinancialNumber) => FinancialNumber
 const make_financial_number = (defaultRoundingStrategy: RoundingStrategy): MakeNumberObject => {
