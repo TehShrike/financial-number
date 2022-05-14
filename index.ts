@@ -1,6 +1,7 @@
-const withDefaultRoundingStrategy = require(`./with-default-rounding-strategy.js`)
+import withDefaultRoundingStrategy from './with-default-rounding-strategy'
+import type { FinancialNumber } from './with-default-rounding-strategy'
 
-function adjustPrecisionByRounding(number, targetPrecision) {
+function adjustPrecisionByRounding(number: FinancialNumber, targetPrecision: number): string {
 	const currentPrecision = number.getPrecision()
 	const precisionIsDropping = targetPrecision < currentPrecision
 
@@ -12,7 +13,7 @@ function adjustPrecisionByRounding(number, targetPrecision) {
 	return adjustPrecisionByTrimming(number, targetPrecision)
 }
 
-function adjustPrecisionByTrimming(number, targetPrecision) {
+function adjustPrecisionByTrimming(number: FinancialNumber, targetPrecision: number): string {
 	const currentPrecision = number.getPrecision()
 	const str = number.toString()
 	if (currentPrecision === targetPrecision) {
@@ -30,7 +31,7 @@ function adjustPrecisionByTrimming(number, targetPrecision) {
 	}
 }
 
-function zeroes(times) {
+function zeroes(times: number) {
 	let output = ``
 	for (let i = 0; i < times; ++i) {
 		output += `0`
@@ -38,7 +39,22 @@ function zeroes(times) {
 	return output
 }
 
-module.exports = withDefaultRoundingStrategy(adjustPrecisionByTrimming)
-module.exports.trim = adjustPrecisionByTrimming
-module.exports.round = adjustPrecisionByRounding
-module.exports.withDefaultRoundingStrategy = withDefaultRoundingStrategy
+type DefaultExportType = ReturnType<typeof withDefaultRoundingStrategy> & {
+	trim: typeof adjustPrecisionByTrimming,
+	round: typeof adjustPrecisionByRounding
+}
+
+const default_export: DefaultExportType = Object.assign(
+	withDefaultRoundingStrategy(adjustPrecisionByTrimming), {
+		trim: adjustPrecisionByTrimming,
+		round: adjustPrecisionByRounding,
+	},
+)
+
+export default default_export
+
+export {
+	withDefaultRoundingStrategy,
+	adjustPrecisionByTrimming as trim,
+	adjustPrecisionByRounding as round,
+}

@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"noImplicitAny": true,
+		"diagnostics": true,
+		"noImplicitThis": true,
+		"noEmitOnError": true,
+		"target": "es2021",
+		"lib": ["es2021", "dom"],
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [
+		"*.ts",
+		"test/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"*.d.ts"
+	]
+}

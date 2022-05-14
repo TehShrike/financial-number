@@ -1,5 +1,5 @@
-const test = require(`tape`)
-const number = require(`../`)
+import test from 'tape'
+import number, { round, withDefaultRoundingStrategy } from '../index'
 
 test(`adding and subtracting`, t => {
 	t.equal(number(`100`).plus(`400.500`).toString(), `500.500`)
@@ -116,6 +116,20 @@ test(`Validate inputs when the initial function is called`, t => {
 test(`modulo`, t => {
 	t.equal(number(`12.00`).mod(`0.01`).toString(), `0.00`)
 	t.equal(number(`12.005`).mod(`0.01`).toString(), `0.005`)
+
+	t.end()
+})
+
+test(`with-rounding-strategy`, t => {
+	const number = withDefaultRoundingStrategy(round)
+
+	const un_rounded_number = number(`5.00`).times(`0.077`)
+
+	t.equal(un_rounded_number.toString(2), `0.39`)
+
+	t.ok(un_rounded_number.changePrecision(2).equal(`0.39`))
+
+	t.equal(un_rounded_number.plus(`1`).minus(`1`).times(`1`).mod(`1`).toString(2), `0.39`)
 
 	t.end()
 })

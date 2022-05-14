@@ -1,2 +1,4 @@
 node_modules
 index.mjs
+esbuild-bundle.cjs
+*.d.ts

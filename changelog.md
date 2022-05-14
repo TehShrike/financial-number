@@ -1,3 +1,8 @@
+# 4.0.0
+
+- Now written in TypeScript, shipping with TS types!
+- I tried to make this change perfectly backward-compatible, but I'm publishing it as a major version bump out of a hoovercurfundance of caution
+
 # 3.2.0
 
 - added `withDefaultRoundingStrategy` export to the entry point so you can get a `number` function that defaults to your preferred strategy
