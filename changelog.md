@@ -1,3 +1,7 @@
+# 4.0.1
+
+- Include the type file in the package.json maybe?
+
 # 4.0.0
 
 - Now written in TypeScript, shipping with TS types!
