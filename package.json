@@ -20,7 +20,10 @@
     "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=esbuild-bundle.cjs",
     "build:esm": "esbuild index.ts --bundle --format=esm --outfile=index.mjs",
     "build:types": "tsc index.ts --emitDeclarationOnly --declaration",
-    "build": "run-p build:*"
+    "build": "run-p build:*",
+    "changeset": "changeset",
+    "prerelease": "npm run build",
+    "release": "changeset publish"
   },
   "repository": {
     "type": "git",
@@ -42,6 +45,7 @@
   },
   "homepage": "https://github.com/TehShrike/financial-number#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "@types/tape": "^4.13.2",
     "esbuild": "^0.14.39",
     "jsmd": "^1.1.0",
