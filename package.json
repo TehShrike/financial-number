@@ -1,6 +1,6 @@
 {
   "name": "financial-number",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "main": "index.cjs",
   "module": "index.mjs",
