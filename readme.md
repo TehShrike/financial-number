@@ -6,7 +6,7 @@ A number object that is safe to use for financial numbers.  Won't ever convert y
 
 ## JS engine support
 
-The `financial-number@1` uses a JS bigint implementation under the hood.  Versions 2+ use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) (supported in node 10.8+ and [modern browsers](https://caniuse.com/#feat=bigint)).
+Starting with version 2, `financial-number` uses [`native BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt), which is supported in node 10.8+ and [modern browsers](https://caniuse.com/#feat=bigint).
 
 ## Premise
 
