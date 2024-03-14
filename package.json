@@ -9,7 +9,8 @@
     ".": {
       "require": "./index.cjs",
       "import": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test:node": "tsm test/test.ts | tap-color",
