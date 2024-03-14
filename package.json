@@ -8,14 +8,14 @@
   "exports": {
     ".": {
       "require": "./index.cjs",
-      "import": "./index.mjs"
+      "import": "./index.mjs",
+      "types": "./index.d.ts"
     },
     "./package.json": "./package.json"
   },
   "scripts": {
     "test:node": "tsm test/test.ts | tap-color",
     "test:readme": "npm run build:cjs && jsmd readme.md",
-    "test:lint": "eslint .",
     "test:types": "tsc --noEmit",
     "test": "run-p test:*",
     "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=esbuild-bundle.cjs",

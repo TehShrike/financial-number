@@ -1,3 +1,7 @@
+# 4.0.4
+
+- Include the type definition in the export map
+
 # 4.0.3
 
 - Export the package.json file [#17](https://github.com/TehShrike/financial-number/pull/17)
