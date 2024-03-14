@@ -1,3 +1,7 @@
+# 4.0.3
+
+- Export the package.json file [#17](https://github.com/TehShrike/financial-number/pull/17)
+
 # 4.0.2
 
 - Export types harder this time
