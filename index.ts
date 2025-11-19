@@ -1,5 +1,5 @@
-import withDefaultRoundingStrategy from './with-default-rounding-strategy'
-import type { FinancialNumber, RoundingStrategy } from './with-default-rounding-strategy'
+import withDefaultRoundingStrategy from './with-default-rounding-strategy.ts'
+import type { FinancialNumber, RoundingStrategy } from './with-default-rounding-strategy.ts'
 
 function adjustPrecisionByRounding(number: FinancialNumber, targetPrecision: number): string {
 	const currentPrecision = number.getPrecision()

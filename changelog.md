@@ -1,3 +1,9 @@
+# 4.0.5
+
+- Upgrate TypeScript
+- Switch to built-in node testing library
+- Prevent the original .ts files from being published to npm
+
 # 4.0.4
 
 - Include the type definition in the export map
