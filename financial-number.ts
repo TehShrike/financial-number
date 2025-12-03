@@ -6,14 +6,17 @@ export type FinancialNumberValue = {
 	decimal_places: bigint
 }
 
-export type NumberInput = FinancialNumber | string | FinancialNumberValue
+export type NumberInput = FinancialNumber | string | FinancialNumberValue | bigint
 
 const toFnv = (input: NumberInput): FinancialNumberValue => {
 	if (typeof input === 'string') {
 		return stringToFinancialNumberValue(input)
-	}
-
-	if (math.validate(input)) {
+	} else if (typeof input === 'bigint') {
+		return {
+			value: input,
+			decimal_places: 0n
+		}
+	} else if (math.validate(input)) {
 		return input
 	}
 

@@ -140,7 +140,7 @@ Pass in the string representation of a number, get back a financial number objec
 
 Financial numbers are immutable, and functions return a new number object.
 
-Financial numbers have these methods.  Most operations and comparisons will accept number argument as strings, financial numbers, or the underlying data structure returned by `valueOf`.
+Financial numbers have these methods.  Most operations and comparisons will accept number argument as strings, financial numbers, bigints, or the underlying data structure returned by `valueOf`.
 
 ### Operations
 

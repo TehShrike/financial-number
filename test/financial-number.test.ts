@@ -202,3 +202,52 @@ test(`pow - decimal places accumulate`, () => {
 	assert.strictEqual(number(`1.5`).pow(3n).toString(), `3.375`)
 	assert.strictEqual(number(`1.5`).pow(3n).getDecimalPlaces(), 3n)
 })
+
+test(`bigint input - constructor`, () => {
+	assert.strictEqual(number(5n).toString(), `5`)
+	assert.strictEqual(number(5n).getDecimalPlaces(), 0n)
+	assert.strictEqual(number(-123n).toString(), `-123`)
+	assert.strictEqual(number(0n).toString(), `0`)
+})
+
+test(`bigint input - plus`, () => {
+	assert.strictEqual(number(`10.5`).plus(5n).toString(), `15.5`)
+	assert.strictEqual(number(100n).plus(50n).toString(), `150`)
+	assert.strictEqual(number(`1.00`).plus(1n).toString(), `2.00`)
+})
+
+test(`bigint input - minus`, () => {
+	assert.strictEqual(number(`10.5`).minus(5n).toString(), `5.5`)
+	assert.strictEqual(number(100n).minus(50n).toString(), `50`)
+	assert.strictEqual(number(`1.00`).minus(1n).toString(), `0.00`)
+})
+
+test(`bigint input - times`, () => {
+	assert.strictEqual(number(`10.5`).times(2n).toString(), `21.0`)
+	assert.strictEqual(number(100n).times(5n).toString(), `500`)
+	assert.strictEqual(number(`1.50`).times(3n).toString(), `4.50`)
+})
+
+test(`bigint input - mod`, () => {
+	assert.strictEqual(number(`10.5`).mod(3n).toString(), `1.5`)
+	assert.strictEqual(number(100n).mod(30n).toString(), `10`)
+	assert.strictEqual(number(`7.00`).mod(2n).toString(), `1.00`)
+})
+
+test(`bigint input - equal`, () => {
+	assert.ok(number(`5`).equal(5n))
+	assert.ok(number(`5.00`).equal(5n))
+	assert.ok(number(5n).equal(`5.000`))
+	assert.ok(!number(`5.1`).equal(5n))
+})
+
+test(`bigint input - comparisons`, () => {
+	assert.ok(number(`5.5`).gt(5n))
+	assert.ok(!number(`5`).gt(5n))
+	assert.ok(number(`5`).gte(5n))
+	assert.ok(number(`4.9`).lt(5n))
+	assert.ok(!number(`5`).lt(5n))
+	assert.ok(number(`5`).lte(5n))
+	assert.ok(number(10n).gt(5n))
+	assert.ok(number(5n).lte(10n))
+})
