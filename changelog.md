@@ -18,8 +18,8 @@ The internal data structure has been fully transitioned from strings to bigints.
 ## Additions
 
 - precision/decimal places can now be passed into method arguments as a `bigint` in addition to a `number`
-- in addition to strings and FinancialNumbers, all existing functions will also accept an object with `value` and `decimal_places` bigints as a valid number
 - a new `valueOf` function that returns the new internal data structure: `{ value: bigint, decimal_places: bigint }`
+- in addition to strings and FinancialNumbers, all existing functions will also accept an object with `value` and `decimal_places` bigints as a valid number
 - a new `pow` function that takes an exponent as a bigint and returns the resulting financial number
 
 # 4.0.5
