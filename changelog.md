@@ -1,6 +1,26 @@
+# 5.0.0
+
+The internal data structure has been fully transitioned from strings to bigints.  You can still pass in strings to all the functions like before, but they are immediately converted to two bigints: one storing the full value, and one storing the number of digits after the decimal place.  This reduces lines of code and should increase performance quite a bit.
+
+## Breaking changes
+
+- the term "precision" has been changed to "decimal places", causing two of the functions to have their names changed
+	- `changePrecision()` -> `changeDecimalPlaces()`
+	- `getPrecision()` -> `getDecimalPlaces()`
+- precision/decimal places are now returned as a `bigint`, not a `number`
+- custom rounding strategies have a completely different type signature.  See <readme.md#custom-rounding-strategies>.
+	- The new type signature for rounding strategies is `(number: { value: bigint, decimal_places: bigint }, targetDecimalPlaces: bigint) => { value: bigint, decimal_places: bigint }`
+	- Your usage of the built-in rounding strategies won't change at all.
+
+## Additions
+
+- precision/decimal places can now be passed into method arguments as a `bigint` in addition to a `number`
+- a new `valueOf` function that returns the new internal data structure: `{ value: bigint, decimal_places: bigint }`
+- in addition to strings and FinancialNumbers, all functions will also accept an object with `value` and `decimal_places` bigints as a valid number
+
 # 4.0.5
 
-- Upgrate TypeScript
+- Upgrade TypeScript
 - Switch to built-in node testing library
 - Prevent the original .ts files from being published to npm
 

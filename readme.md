@@ -75,7 +75,11 @@ import number, { round, trim } from 'financial-number'
 
 In general, the IRS probably won't care which method you use as long as you use it everywhere consistently.  In practice, ask your accountant.
 
-If your accountant tells you you need some other rounding strategy, you can bring your own.  Rounding functions take two arguments: a financial-number data structure, and a bigint representing the desired number of digits after the decimal point.
+If your accountant tells you you need some other rounding strategy, you can bring your own custom rounding strategy.
+
+### Custom rounding strategies
+
+You can write your own rounding implementation – rounding functions take two arguments: a financial-number data structure, and a bigint representing the desired number of digits after the decimal point.
 
 ```ts
 type RoundingStrategy = (number: { value: bigint, decimal_places: bigint }, targetDecimalPlaces: bigint) => { value: bigint, decimal_places: bigint }
