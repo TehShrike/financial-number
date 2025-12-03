@@ -1,5 +1,6 @@
 {
   "name": "financial-number",
+  "packageManager": "pnpm@10.19.0",
   "version": "4.0.5",
   "description": "Do math with money! Without risking loss of data to floating point representations!",
   "type": "module",
@@ -15,13 +16,12 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "test:node": "node --test test/test.ts",
-    "test:readme": "npm run build:cjs && jsmd readme.md",
+    "test:node": "node --test test/*.test.ts",
     "test:types": "tsc --noEmit",
     "test": "run-p test:*",
     "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=esbuild-bundle.cjs",
     "build:esm": "esbuild index.ts --bundle --format=esm --outfile=index.mjs",
-    "build:types": "tsc index.ts --emitDeclarationOnly --declaration",
+    "build:types": "tsc index.ts --emitDeclarationOnly --declaration --allowImportingTsExtensions",
     "build": "run-p build:*"
   },
   "repository": {
@@ -46,11 +46,10 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "esbuild": "^0.14.39",
-    "jsmd": "^1.1.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "financial-arithmetic-functions": "^3.2.0"
+    "financial-arithmetic-functions": "^4.1.0"
   }
 }
