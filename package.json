@@ -21,7 +21,7 @@
     "test": "run-p test:*",
     "build:cjs": "esbuild index.ts --bundle --format=cjs --outfile=esbuild-bundle.cjs",
     "build:esm": "esbuild index.ts --bundle --format=esm --outfile=index.mjs",
-    "build:types": "tsc index.ts --emitDeclarationOnly --declaration --allowImportingTsExtensions",
+    "build:types": "tsc -p tsconfig.build.json",
     "build": "run-p build:*"
   },
   "repository": {
