@@ -153,3 +153,52 @@ test(`modulo`, () => {
 	assert.strictEqual(number(`12.005`).mod(`0.01`).toString(), `0.005`)
 	assert.strictEqual(number(fnv(12005n, 3n)).mod(fnv(1n, 2n)).toString(), `0.005`)
 })
+
+test(`pow - basic exponentiation`, () => {
+	assert.strictEqual(number(`2`).pow(3n).toString(), `8`)
+	assert.strictEqual(number(fnv(2n, 0n)).pow(3n).toString(), `8`)
+	assert.strictEqual(number(`10`).pow(4n).toString(), `10000`)
+	assert.strictEqual(number(fnv(10n, 0n)).pow(4n).toString(), `10000`)
+})
+
+test(`pow - exponent of 0 returns 1`, () => {
+	assert.strictEqual(number(`5`).pow(0n).toString(), `1`)
+	assert.strictEqual(number(`123.456`).pow(0n).toString(), `1`)
+	assert.strictEqual(number(`-99`).pow(0n).toString(), `1`)
+})
+
+test(`pow - exponent of 1 returns same value`, () => {
+	assert.strictEqual(number(`5`).pow(1n).toString(), `5`)
+	assert.strictEqual(number(`123.456`).pow(1n).toString(), `123.456`)
+	assert.strictEqual(number(`-99`).pow(1n).toString(), `-99`)
+})
+
+test(`pow - decimal base`, () => {
+	// 1.5^2 = 2.25
+	assert.strictEqual(number(`1.5`).pow(2n).toString(), `2.25`)
+	assert.strictEqual(number(fnv(15n, 1n)).pow(2n).toString(), `2.25`)
+	// 0.5^3 = 0.125
+	assert.strictEqual(number(`0.5`).pow(3n).toString(), `0.125`)
+	// 1.1^2 = 1.21
+	assert.strictEqual(number(`1.1`).pow(2n).toString(), `1.21`)
+})
+
+test(`pow - negative base`, () => {
+	// (-2)^2 = 4
+	assert.strictEqual(number(`-2`).pow(2n).toString(), `4`)
+	// (-2)^3 = -8
+	assert.strictEqual(number(`-2`).pow(3n).toString(), `-8`)
+	// (-1.5)^2 = 2.25
+	assert.strictEqual(number(`-1.5`).pow(2n).toString(), `2.25`)
+	// (-1.5)^3 = -3.375
+	assert.strictEqual(number(`-1.5`).pow(3n).toString(), `-3.375`)
+})
+
+test(`pow - decimal places accumulate`, () => {
+	// 1.00^2 should have 4 decimal places (2*2)
+	assert.strictEqual(number(`1.00`).pow(2n).toString(), `1.0000`)
+	assert.strictEqual(number(`1.00`).pow(2n).getDecimalPlaces(), 4n)
+	// 1.5^3 should have 3 decimal places (1*3)
+	assert.strictEqual(number(`1.5`).pow(3n).toString(), `3.375`)
+	assert.strictEqual(number(`1.5`).pow(3n).getDecimalPlaces(), 3n)
+})

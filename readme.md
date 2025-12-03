@@ -129,18 +129,18 @@ export default number
 
 ## API
 
-- `number(string)`
+- `number(string | { value: bigint, decimal_places: bigint })`
 
 ```ts
 const numberValue = number('50.0')
-const alsoNumberValue = number({ value: 500n, decimal_places: 1n })
+const equivalentNumberValue = number({ value: 500n, decimal_places: 1n })
 ```
 
 Pass in the string representation of a number, get back a financial number object.
 
 Financial numbers are immutable, and functions return a new number object.
 
-Financial numbers have these methods.  The operations and comparisons all take strings, financial numbers, or the underlying data structures returned by `valueOf`.
+Financial numbers have these methods.  Most operations and comparisons will accept number argument as strings, financial numbers, or the underlying data structure returned by `valueOf`.
 
 ### Operations
 
@@ -148,6 +148,7 @@ Financial numbers have these methods.  The operations and comparisons all take s
 - `numberValue.minus(num)`
 - `numberValue.times(num)`
 - `numberValue.mod(num)`
+- `numberValue.pow(exponent)` - exponent is a `bigint`
 
 ### Comparisons
 
