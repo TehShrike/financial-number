@@ -4,10 +4,13 @@ The internal data structure has been fully transitioned from strings to bigints.
 
 ## Breaking changes
 
-- the term "precision" has been changed to "decimal places", causing two of the functions to have their names changed
+- **if you were passing in [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) values, that will no longer work**
+	- the type signature didn't allow you to pass in `number` values before, but if you did, they would be implicitly cast to strings.  This won't work any more and will cause runtime errors.
+	- you will need to explicitly call `toString` in any place where you are passing in `number`s as arguments
+- the term "precision" has been changed to "decimal places", causing two functions to have their names changed
 	- `changePrecision()` -> `changeDecimalPlaces()`
 	- `getPrecision()` -> `getDecimalPlaces()`
-- precision/decimal places are now returned as a `bigint`, not a `number`
+- `getDecimalPlaces()` now returns a `bigint`, not a `number`
 - custom rounding strategies have a completely different type signature.  See <readme.md#custom-rounding-strategies>.
 	- The new type signature for rounding strategies is `(number: { value: bigint, decimal_places: bigint }, targetDecimalPlaces: bigint) => { value: bigint, decimal_places: bigint }`
 	- Your usage of the built-in rounding strategies won't change at all.
@@ -15,8 +18,9 @@ The internal data structure has been fully transitioned from strings to bigints.
 ## Additions
 
 - precision/decimal places can now be passed into method arguments as a `bigint` in addition to a `number`
+- in addition to strings and FinancialNumbers, all existing functions will also accept an object with `value` and `decimal_places` bigints as a valid number
 - a new `valueOf` function that returns the new internal data structure: `{ value: bigint, decimal_places: bigint }`
-- in addition to strings and FinancialNumbers, all functions will also accept an object with `value` and `decimal_places` bigints as a valid number
+- a new `pow` function that takes an exponent as a bigint and returns the resulting financial number
 
 # 4.0.5
 
